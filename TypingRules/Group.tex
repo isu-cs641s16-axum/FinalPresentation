@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+
+\begin{document}
+
+\begin{frame}{}
+	\begin{mathpar}
+		\inferrule* [Right= \quad T\_Group]
+          		{\Gamma \vdash x = S \\\\ 
+          		schema \:S \\ schema \:S' \\\\ 
+          		schema\_column\_has\_type \:S \:c \\\\ 
+          		S' = TInt ::: (TBag \:S)} 
+          		{\Gamma \vdash GROUP \:x \:c \in S' }
+	\end{mathpar}
+\end{frame}
+\end{document}

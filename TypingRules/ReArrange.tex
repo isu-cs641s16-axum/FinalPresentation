@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+
+\begin{document}
+
+\begin{frame}{}
+	\begin{mathpar}
+		\inferrule* [Right=\quad T\_LReArrange]
+          		{\Gamma \vdash x = S \\ schema \:S \\\\ 
+          		schema\_column\_has\_type \:S \:c} 
+          		{\Gamma \vdash LReArrange \:x\:c \in S }\\
+		\inferrule* [Right=\quad T\_GReArrange]
+          		{\Gamma \vdash x = S \\ schema \:S \\\\ 
+          		schema\_column\_has\_type \:S \:c} 
+          		{\Gamma \vdash GReArrange \:x\:c \in S }
+	\end{mathpar}
+\end{frame}
+\end{document}

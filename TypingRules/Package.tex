@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+
+\begin{document}
+
+\begin{frame}{}
+	\begin{mathpar}
+		\inferrule* [Right= \quad T\_Package]
+          		{\Gamma \vdash x = S \\ schema \:S \\\\ 
+          		schema\_column\_has\_type \:S \:c \\\\
+				S' = TInt ::: (TBag \:S) \\ schema \: S'} 
+          		{\Gamma \vdash PACKAGE \:x \:c \in S' }
+	\end{mathpar}
+\end{frame}
+\end{document}

@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+
+\begin{document}
+
+\begin{frame}{}
+	\begin{mathpar}
+		\inferrule* [Right= \quad T\_Join]
+          		{\Gamma \vdash x = S_1 \\ \Gamma \vdash y =  S_2 \\\\
+          		schema\:S_1 \\ schema \:S_2 \\\\ 
+		 		schema\_column\_has\_type \:S_1 \:c_x \\\\
+		 		schema\_column\_has\_type \:S_2 \:c_y \\\\
+		 		concatenated\_schema \:S_1\:S_2\:S_3} 
+		 		{\Gamma \vdash JOIN \:x \:c_x \:y \:c_y \in S_3 }
+	\end{mathpar}
+\end{frame}
+\end{document}

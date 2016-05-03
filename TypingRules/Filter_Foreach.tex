@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+
+\begin{document}
+
+\begin{frame}{}
+	\begin{mathpar}
+		\inferrule* [Right=\quad T\_Filter]
+          		{\Gamma \vdash x = S \\ schema \:S \\ 
+          		\Gamma \vdash y = Pred \:S} 
+          		{\Gamma \vdash FILTER \:x, y \in S }
+		\hva \and
+		\inferrule* [Right=\quad\quad\quad\: T\_ForEach]
+          		{schema \:S_1 \\ schema \:S_2 \\\\ 
+				\Gamma \vdash x = S_1 \\ \Gamma \vdash y = Fn\: S_1\:S_2} 
+				{\Gamma \vdash FOREACH \:x\:y \in S }
+	\end{mathpar}
+\end{frame}
+\end{document}
