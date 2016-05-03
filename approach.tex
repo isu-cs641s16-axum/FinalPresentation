@@ -89,9 +89,10 @@
 \subsection{Typing Rules for Logical Plan}
 \begin{frame}{Typing Rules: Queries}
 	\begin{mathpar}
-		\inferrule* [Right=\textbf{T\_Filter}]
-          		{\Gamma \vdash x = S \\ schema \:S \\ \Gamma \vdash y = Pred \:S} 
-          		{\Gamma \vdash FILTER \:x, y \in S }
+		\inferrule* [Right=\texttt{T\_Filter}]
+          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\ 
+          		\Gamma \vdash \texttt{y = Pred \:S}} 
+          		{\Gamma \vdash \texttt{FILTER \:x, y} \in \texttt{S} }
 		\hva \and
 		\inferrule* [Right={\textbf{T\_ForEach}}]
           		{schema \:S_1 \\ schema \:S_2 \\\\ 
