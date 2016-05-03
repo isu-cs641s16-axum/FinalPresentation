@@ -15,6 +15,7 @@
 \end{itemize}
 \end{frame}
 
+\subsection{Formalism}
 \begin{frame}{Conventions}
 \centering
 	\begin{flushleft}
@@ -26,17 +27,6 @@
  		s : a statement\newline
  		q : a term of query form\newline 
 	\end{flushleft}
-\end{frame}
-
-\subsection{Logical Plan}
-\begin{frame}{Formalism for Logical Plan}
-\begin{itemize}
-	\item We have hope to create formalisms at each level which reflect all five
-	core features.
-	\item We present our first attempt of a logical plan grammar and static
-	semantics
-	\item We believe this reflects 4/5 core features.
-\end{itemize}
 \end{frame}
 
 \begin{frame}{Grammar: Schema Types}
@@ -67,7 +57,7 @@
 	\end{flushleft}
 \end{frame}
 
-\begin{frame}{Grammar: Terms}
+\begin{frame}{Grammar: Terms For Logical Plan}
 \centering
 	\begin{flushleft}
 	$ \texttt{tm} := \hfill \texttt{Terms}\hfill$\\
@@ -85,64 +75,93 @@
 \begin{frame}{Grammar: Types}
 \centering
 	\begin{flushleft}
-	$ ty \::= \hfill \textnormal{\emph{Types}}\hfill$\\
-	$ \quad \mid TUnit\hfill \textnormal{\emph{Unit Type}}\hfill$\\
-   	$ \quad \mid TFn \hfill \textnormal{\emph{Function Type}}\hfill$\\
-    $ \quad \mid TPred \hfill \textnormal{\emph{Predicate Type}}\hfill$\\
-    $ \quad \mid TNil \hfill \textnormal{\emph{Schema Tuple Terminator}}\hfill$\\
-    $ \quad \mid TCons \hfill \textnormal{\emph{Schema Tuple Extension}}\hfill$\\
-   	$ \quad \mid TInt \hfill \textnormal{\emph{Atomic Schema Attribute}}\hfill$\\
-    $ \quad \mid TBag \hfill \textnormal{\emph{Compound Schema Attribute}}\hfill$\\
+	$ \texttt{ty} := \hfill \texttt{Types}\hfill$\\
+	$ \quad \mid \texttt{TUnit}\hfill \texttt{Unit Type}\hfill$\\
+   	$ \quad \mid \texttt{TFn} \hfill \texttt{Function Type}\hfill$\\
+    $ \quad \mid \texttt{TPred} \hfill \texttt{Predicate Type}\hfill$\\
+    $ \quad \mid \texttt{TNil} \hfill \texttt{Schema Tuple Terminator}\hfill$\\
+    $ \quad \mid \texttt{TCons} \hfill \texttt{Schema Tuple Extension}\hfill$\\
+   	$ \quad \mid \texttt{TInt} \hfill \texttt{Atomic Schema Attribute}\hfill$\\
+    $ \quad \mid \texttt{TBag} \hfill \texttt{Compound Schema Attribute}\hfill$\\
 	\end{flushleft}
 \end{frame}
 
+\subsection{Typing Rules for Logical Plan}
 \begin{frame}{Typing Rules: Queries}
 	\begin{mathpar}
 		\inferrule* [Right=\textbf{T\_Filter}]
-          		{\Gamma \vdash x = S \\ schema\_ty\: S \\ \Gamma \vdash y = TPred \:S} {\Gamma \vdash t\_filter \:x, y \in S }
+          		{\Gamma \vdash x = S \\ schema \:S \\ \Gamma \vdash y = Pred \:S} 
+          		{\Gamma \vdash FILTER \:x, y \in S }
 		\hva \and
 		\inferrule* [Right={\textbf{T\_ForEach}}]
-          		{schema\_ty\: S1 \\ schema\_ty\: S2 \\\\ 
-		\Gamma \vdash x = S1 \\ \Gamma \vdash y = TFn\: S1\:S2} {\Gamma \vdash t\_filter \:x, y \in S }
+          		{schema \:S_1 \\ schema \:S_2 \\\\ 
+				\Gamma \vdash x = S_1 \\ \Gamma \vdash y = Fn\: S_1\:S_2} 
+				{\Gamma \vdash FOREACH \:x\:y \in S }
 	\end{mathpar}
 \end{frame}
 
-\begin{frame}{Typing Rules: ...Queries}
+\begin{frame}{Typing Rules: Queries(continued...)}
 	\begin{mathpar}
-		\inferrule* [Right=\emph{\textbf{T\_Group}}]
-          		{\Gamma \vdash x = S1 \\\\ schema\_ty\: S1 \\ schema\_ty\: S2 \\\\ schema\_column S1 c = true \\\\ S2 = TCons TInt (TBag S1)} {\Gamma \vdash t\_group \:x  c \in S2 }
-		\hva \and
-		\inferrule* [Right=\emph{\textbf{T\_Join}}]
-          		{schema\_ty\: S1 \\ schema\_ty\: S2 \\\\ 
-		\Gamma \vdash x = S1 \\ \Gamma \vdash y =  S2 \\\\ schema\_column S1 cx = true \\schema\_column S2 cy = true  } {\Gamma \vdash t\_join \:x cx, y cy \in S3 }
+		\inferrule* [Right=\textbf{T\_Group}]
+          		{\Gamma \vdash x = S \\\\ 
+          		schema \:S \\ schema \:S' \\\\ 
+          		schema\_column\_has\_type \:S \:c \\\\ 
+          		S' = TInt ::: (TBag \:S)} 
+          		{\Gamma \vdash GROUP \:x \:c \in S' }
+	\end{mathpar}
+\end{frame}
+
+\begin{frame}{Typing Rules: Queries(continued...)}
+	\begin{mathpar}
+		\inferrule* [Right=\textbf{T\_Join}]
+          		{\Gamma \vdash x = S_1 \\ \Gamma \vdash y =  S_2 \\\\
+          		schema\:S_1 \\ schema \:S_2 \\\\ 
+		 		schema\_column\_has\_type \:S_1 \:c_x \\\\
+		 		schema\_column\_has\_type \:S_2 \:c_y \\\\
+		 		concatenated\_schema \:S_1\:S_2\:S_3} 
+		 		{\Gamma \vdash JOIN \:x \:c_x \:y \:c_y \in S_3 }
 	\end{mathpar}
 \end{frame}
 
 \begin{frame}{Typing Rules: Statements}
 \centering
 	\begin{mathpar}
-		\inferrule* [Right=\emph{\textbf{T\_Load}}]
-          		{\Gamma \vdash x = None \\ loadable\_ty\: T} {\Gamma \vdash t\_load \:x T \in TUnit }
+		\inferrule* [Right=\textbf{T\_Load}]
+          		{\Gamma \vdash x = None \\ loadable\_ty\: T} 
+          		{\Gamma \vdash LOAD \:x\:T \in TUnit }
 		\hva \and
-		\inferrule* [Right=\emph{\textbf{T\_Assign}}]
-          		{\Gamma \vdash x = None \\ \Gamma \vdash q = S \\schema_ty S} {\Gamma \vdash t\_assign \:x q \in TUnit }
+		\inferrule* [Right=\textbf{T\_Assign}]
+          		{\Gamma \vdash x = None \\ \Gamma \vdash q = S \\schema \:S} 
+          		{\Gamma \vdash ASSIGN \:x \:q \in TUnit }
 		\hva \and
-		\inferrule* [Right=\emph{\textbf{T\_Store}}]
-          		{schema\_ty\: S1 \\ schema\_ty\: S2 \\\\ 
-		\Gamma \vdash x = S \\ schema\_ty S} {\Gamma \vdash t\_store \:x \in TUnit }
+		\inferrule* [Right=\textbf{T\_Store}]
+				{\Gamma \vdash x = S \\ schema \:S} 
+				{\Gamma \vdash STORE \:x \in TUnit }
 	\end{mathpar}
 \end{frame}
 
-\begin{frame}{Typing Rules: ...Statements}
+\begin{frame}{Typing Rules: Statements (continued...)}
 	\begin{mathpar}
-		\inferrule* [Right=\emph{\textbf{T\_SeqLoad}}]
-          		{s1 = t\_load x T \\Gamma \vdash s1 \in TUnit \\ \Gamma, x:T \vdash s2 \in TUnit } {\Gamma \vdash t\_seq \:s1 s2 \in TUnit }
+		\inferrule* [Right=\textbf{T\_SeqLoad}]
+          		{s_1 = LOAD \:x \:T \\ \Gamma \vdash s_1 \in TUnit \\\\
+          		\Gamma, x:T \vdash s_2 \in TUnit } 
+          		{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
+          		
 		\hva \and
-		\inferrule* [Right=\emph{\textbf{T\_SeqAssign}}]
-          		{s1 = t\_store x \\ schema\_ty S \\\\\Gamma \vdash x = S \\ \Gamma \vdash s1 \in TUnit \\ \Gamma \vdash s2 \in TUnit} {\Gamma \vdash t\_seq \:s1 s2 \in TUnit }
-		\hva \and
-		\inferrule* [Right=\emph{\textbf{T\_SeqStore}}]
-          		{s1 = t\_store x \\ \Gamma \vdash x = S \\ schema\_ty\: S  \\\\ 
-		\Gamma \vdash s1 \in TUnit \\ \Gamma \vdash s2 \in TUnit } {\Gamma \vdash t\_seq \:s1 s2 \in TUnit }
+		\inferrule* [Right=\textbf{T\_SeqAssign}]
+          		{s_1 = ASSIGN \:x \:q \\\\
+          		\Gamma \vdash q = S \\ schema \:S \\\\
+          		\Gamma \vdash s_1 \in TUnit \\ \Gamma, x:S \vdash s_2 \in TUnit} 
+          		{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
+	\end{mathpar}
+\end{frame}
+
+\begin{frame}{Typing Rules: Statements (continued...)}
+	\begin{mathpar}
+		\inferrule* [Right= \textbf{T\_SeqStore}]
+          	{s_1 = STORE \:x \\\\
+          	\Gamma \vdash x = S \\ schema \:S  \\\\ 
+			\Gamma \vdash s_1 \in TUnit \\ \Gamma \vdash s_2 \in TUnit } 
+			{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
 	\end{mathpar}
 \end{frame}
