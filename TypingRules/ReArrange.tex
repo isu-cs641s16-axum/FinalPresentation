@@ -7,11 +7,11 @@
 	\begin{mathpar}
 		\inferrule* [Right=\quad T\_LReArrange]
           		{\Gamma \vdash x = S \\ schema \:S \\\\ 
-          		schema\_column\_has\_type \:S \:c} 
+          		\vdash \:S \:[c] \in TInt} 
           		{\Gamma \vdash LReArrange \:x\:c \in S }\\
 		\inferrule* [Right=\quad T\_GReArrange]
           		{\Gamma \vdash x = S \\ schema \:S \\\\ 
-          		schema\_column\_has\_type \:S \:c} 
+          		\vdash \:S \:[c] \in TInt} 
           		{\Gamma \vdash GReArrange \:x\:c \in S }
 	\end{mathpar}
 \end{frame}

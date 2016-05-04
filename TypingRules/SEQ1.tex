@@ -8,12 +8,12 @@
 		\inferrule* [Right= \quad\:\:\: T\_SeqLoad]
           		{s_1 = LOAD \:x \:T \\ \Gamma \vdash s_1 \in TUnit \\\\
           		\Gamma, x:T \vdash s_2 \in TUnit } 
-          		{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }\\
+          		{\Gamma \vdash \:s_1 \: ;; \:s_2 \in TUnit }\\
 		\inferrule* [Right= \quad T\_SeqAssign]
-          		{s_1 = ASSIGN \:x \:q \\\\
+          		{s_1 = (\:x ::= \:q) \\\\
           		\Gamma \vdash q = S \\ schema \:S \\\\
           		\Gamma \vdash s_1 \in TUnit \\ \Gamma, x:S \vdash s_2 \in TUnit} 
-          		{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
+          		{\Gamma \vdash \:s_1 \: ;; \:s_2 \in TUnit }
 	\end{mathpar}
 \end{frame}
 \end{document}

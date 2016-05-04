@@ -7,8 +7,8 @@
 	\begin{mathpar}
 		\inferrule* [Right= \quad T\_Package]
           		{\Gamma \vdash x = S \\ schema \:S \\\\ 
-          		schema\_column\_has\_type \:S \:c \\\\
-				S' = TInt ::: (TBag \:S) \\ schema \: S'} 
+          		\vdash \:S \:[c] \in TInt \\\\
+				S' = TInt ::: (TBag \:S) ::: TInt \\ schema \: S'} 
           		{\Gamma \vdash PACKAGE \:x \:c \in S' }
 	\end{mathpar}
 \end{frame}

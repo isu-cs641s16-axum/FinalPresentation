@@ -8,8 +8,8 @@
 		\inferrule* [Right= \quad T\_Group]
           		{\Gamma \vdash x = S \\\\ 
           		schema \:S \\ schema \:S' \\\\ 
-          		schema\_column\_has\_type \:S \:c \\\\ 
-          		S' = TInt ::: (TBag \:S)} 
+          		\vdash \:S \:[c] \in \:TInt\\\\ 
+          		S' = TInt ::: (TBag \:S) ::: TInt} 
           		{\Gamma \vdash GROUP \:x \:c \in S' }
 	\end{mathpar}
 \end{frame}
