@@ -47,7 +47,7 @@
 %    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
 %    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
 %	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Terms.JPG} 
+\includegraphics[scale=0.6]{Images/Grammar/Terms.JPG}
 \end{frame}
 
 
@@ -65,7 +65,7 @@
 %    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
 %    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
 %	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Terms_Physical.JPG} 
+\includegraphics[scale=0.6]{Images/Grammar/Terms_Physical.JPG}
 \end{frame}
 
 \begin{frame}{Grammar: Schema Types}
@@ -74,13 +74,13 @@
 %	$ schema := \hfill \quad Schema \:Types\hfill$\\
 %	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
 %   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
-%	
+%
 %	$ \texttt{schema} := \hfill \quad\texttt{Schema Types}\hfill$\\
 %	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
 %   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
 %
 %	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Schema.JPG} 
+\includegraphics[scale=0.6]{Images/Grammar/Schema.JPG}
 \end{frame}
 
 
@@ -88,12 +88,12 @@
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\texttt{T\_Package}]
-%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\ 
+%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\
 %          		schema\_column\_has\_type \:S \:c \\\\
-%				S' = TInt ::: (TBag S) \\ \texttt{schema \:S'}} 
+%				S' = TInt ::: (TBag S) \\ \texttt{schema \:S'}}
 %          		{\Gamma \vdash \texttt{Package \:x c} \in \texttt{S'} }
 %	\end{mathpar}
-\includegraphics[scale=0.6]{Images/Grammar/Relation.JPG} 
+\includegraphics[scale=0.6]{Images/Grammar/Relation.JPG}
 \end{frame}
 
 \begin{frame}{Grammar: Types}
@@ -108,7 +108,7 @@
 %   	$ \:\:\: \mid \texttt{TInt} \hfill \qquad\qquad\qquad\qquad\quad \texttt{Atomic Schema Attribute}\hfill$\\
 %    $ \:\:\: \mid \texttt{TBag} \hfill \quad\qquad\qquad\qquad\qquad\: \texttt{Compound Schema Attribute}\hfill$\\
 %	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Types.JPG} 
+\includegraphics[scale=0.6]{Images/Grammar/Types.JPG}
 \end{frame}
 
 \subsection{Typing Rules for Logical Plan}
@@ -116,29 +116,29 @@
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\texttt{T\_Filter}]
-%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\ 
-%          		\Gamma \vdash \texttt{y = Pred \:S}} 
+%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\
+%          		\Gamma \vdash \texttt{y = Pred \:S}}
 %          		{\Gamma \vdash \texttt{FILTER \:x, y} \in \texttt{S} }
 %		\hva \and
 %		\inferrule* [Right={\textbf{T\_ForEach}}]
-%          		{schema \:S_1 \\ schema \:S_2 \\\\ 
-%				\Gamma \vdash x = S_1 \\ \Gamma \vdash y = Fn\: S_1\:S_2} 
+%          		{schema \:S_1 \\ schema \:S_2 \\\\
+%				\Gamma \vdash x = S_1 \\ \Gamma \vdash y = Fn\: S_1\:S_2}
 %				{\Gamma \vdash FOREACH \:x\:y \in S }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/FilterForeach.JPG} 
+\includegraphics[scale=0.4]{Images/TypingRules/FilterForeach.JPG}
 \end{frame}
 
 \begin{frame}{Typing Rules: Queries(continued...)}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_Group}]
-%          		{\Gamma \vdash x = S \\\\ 
-%          		schema \:S \\ schema \:S' \\\\ 
-%          		schema\_column\_has\_type \:S \:c \\\\ 
-%          		S' = TInt ::: (TBag \:S)} 
+%          		{\Gamma \vdash x = S \\\\
+%          		schema \:S \\ schema \:S' \\\\
+%          		schema\_column\_has\_type \:S \:c \\\\
+%          		S' = TInt ::: (TBag \:S)}
 %          		{\Gamma \vdash GROUP \:x \:c \in S' }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/Group.JPG} 
+\includegraphics[scale=0.4]{Images/TypingRules/Group.JPG}
 \end{frame}
 
 \begin{frame}{Typing Rules: Queries(continued...)}
@@ -146,31 +146,31 @@
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_Join}]
 %          		{\Gamma \vdash x = S_1 \\ \Gamma \vdash y =  S_2 \\\\
-%          		schema\:S_1 \\ schema \:S_2 \\\\ 
+%          		schema\:S_1 \\ schema \:S_2 \\\\
 %		 		schema\_column\_has\_type \:S_1 \:c_x \\\\
 %		 		schema\_column\_has\_type \:S_2 \:c_y \\\\
-%		 		concatenated\_schema \:S_1\:S_2\:S_3} 
+%		 		concatenated\_schema \:S_1\:S_2\:S_3}
 %		 		{\Gamma \vdash JOIN \:x \:c_x \:y \:c_y \in S_3 }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/Join.JPG} 
+\includegraphics[scale=0.4]{Images/TypingRules/Join.JPG}
 \end{frame}
 
 \begin{frame}{Typing Rules: Statements}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_Load}]
-%          		{\Gamma \vdash x = None \\ loadable\_ty\: T} 
+%          		{\Gamma \vdash x = None \\ loadable\_ty\: T}
 %          		{\Gamma \vdash LOAD \:x\:T \in TUnit }
 %		\hva \and
 %		\inferrule* [Right=\textbf{T\_Assign}]
-%          		{\Gamma \vdash x = None \\ \Gamma \vdash q = S \\schema \:S} 
+%          		{\Gamma \vdash x = None \\ \Gamma \vdash q = S \\schema \:S}
 %          		{\Gamma \vdash ASSIGN \:x \:q \in TUnit }
 %		\hva \and
 %		\inferrule* [Right=\textbf{T\_Store}]
-%				{\Gamma \vdash x = S \\ schema \:S} 
+%				{\Gamma \vdash x = S \\ schema \:S}
 %				{\Gamma \vdash STORE \:x \in TUnit }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/Load_Assign_Store.JPG} 
+\includegraphics[scale=0.4]{Images/TypingRules/Load_Assign_Store.JPG}
 \end{frame}
 
 \begin{frame}{Typing Rules: Statements (continued...)}
@@ -178,14 +178,14 @@
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_SeqLoad}]
 %          		{s_1 = LOAD \:x \:T \\ \Gamma \vdash s_1 \in TUnit \\\\
-%          		\Gamma, x:T \vdash s_2 \in TUnit } 
+%          		\Gamma, x:T \vdash s_2 \in TUnit }
 %          		{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
-%          		
+%
 %		\hva \and
 %		\inferrule* [Right=\textbf{T\_SeqAssign}]
 %          		{s_1 = ASSIGN \:x \:q \\\\
 %          		\Gamma \vdash q = S \\ schema \:S \\\\
-%          		\Gamma \vdash s_1 \in TUnit \\ \Gamma, x:S \vdash s_2 \in TUnit} 
+%          		\Gamma \vdash s_1 \in TUnit \\ \Gamma, x:S \vdash s_2 \in TUnit}
 %          		{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
 %	\end{mathpar}
 \includegraphics[scale=0.4]{Images/TypingRules/SEQ1.JPG}
@@ -196,11 +196,11 @@
 %	\begin{mathpar}
 %		\inferrule* [Right= \textbf{T\_SeqStore}]
 %          	{s_1 = STORE \:x \\\\
-%          	\Gamma \vdash x = S \\ schema \:S  \\\\ 
-%			\Gamma \vdash s_1 \in TUnit \\ \Gamma \vdash s_2 \in TUnit } 
+%          	\Gamma \vdash x = S \\ schema \:S  \\\\
+%			\Gamma \vdash s_1 \in TUnit \\ \Gamma \vdash s_2 \in TUnit }
 %			{\Gamma \vdash SEQ \:s_1 \:s_2 \in TUnit }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/SEQ2.JPG} 
+\includegraphics[scale=0.4]{Images/TypingRules/SEQ2.JPG}
 \end{frame}
 
 \subsection{Typing Rules for Physical Plan}
@@ -208,25 +208,60 @@
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\texttt{T\_LReArrange}]
-%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\ 
-%          		schema\_column\_has\_type \:S \:c} 
+%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\
+%          		schema\_column\_has\_type \:S \:c}
 %          		{\Gamma \vdash \texttt{LReArrange \:x c} \in \texttt{S} }\\
 %		\inferrule* [Right=\texttt{T\_GReArrange}]
-%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\ 
-%          		schema\_column\_has\_type \:S \:c} 
+%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\
+%          		schema\_column\_has\_type \:S \:c}
 %          		{\Gamma \vdash \texttt{GReArrange \:x c} \in \texttt{S} }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/ReArrange.JPG}  
+\includegraphics[scale=0.4]{Images/TypingRules/ReArrange.JPG}
 \end{frame}
 
 \begin{frame}{Queries(continued...)}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\texttt{T\_Package}]
-%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\ 
+%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\
 %          		schema\_column\_has\_type \:S \:c \\\\
-%				S' = TInt ::: (TBag S) \\ \texttt{schema \:S'}} 
+%				S' = TInt ::: (TBag S) \\ \texttt{schema \:S'}}
 %          		{\Gamma \vdash \texttt{Package \:x c} \in \texttt{S'} }
 %	\end{mathpar}
-\includegraphics[scale=0.4]{Images/TypingRules/Package.JPG} 
+\includegraphics[scale=0.4]{Images/TypingRules/Package.JPG}
+\end{frame}
+
+\begin{frame}{Semantics: Representing Relations with multiset}
+\centering
+  \includegraphics[scale=0.5]{CoqIDE/Semantics/Multisets.png}
+\end{frame}
+
+\begin{frame}{Semantics: Four Key Specification Properties}
+\centering
+  \begin{enumerate}
+  \item \texttt{filtered}
+	\item \texttt{mapped}
+	\item \texttt{grouped}
+	\item \texttt{joined}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Semantics: The \texttt{filtered} Specification}
+\centering
+  \includegraphics[]{CoqIDE/Semantics/filtered.png}
+\end{frame}
+
+\begin{frame}{Semantics: The \texttt{mapped} Specification}
+\centering
+  \includegraphics[]{CoqIDE/Semantics/mapped.png}
+\end{frame}
+
+\begin{frame}{Semantics: The \texttt{grouped} Specification}
+\centering
+  \includegraphics[]{CoqIDE/Semantics/grouped.png}
+\end{frame}
+
+\begin{frame}{Semantics: The \texttt{joined} Specification}
+\centering
+  \includegraphics[]{CoqIDE/Semantics/joined.png}
 \end{frame}
