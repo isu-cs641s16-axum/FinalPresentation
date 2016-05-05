@@ -16,7 +16,7 @@
 \end{frame}
 
 \subsection{Formalism}
-\begin{frame}{Conventions}
+\begin{frame}{Conventions and Notations}
 \centering
 	\begin{flushleft}
 		T \quad : a type\newline
@@ -34,7 +34,7 @@
 	\end{flushleft}
 \end{frame}
 
-\begin{frame}{Grammar: Terms For Logical Plan}
+\begin{frame}{Logical Plan: Terms}
 \centering
 %	\begin{flushleft}
 %	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
@@ -51,7 +51,7 @@
 \end{frame}
 
 
-\begin{frame}{Grammar: Terms For Physical Plan}
+\begin{frame}{Physical Plan: Terms}
 \centering
 %	\begin{flushleft}
 %	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
@@ -68,7 +68,7 @@
 \includegraphics[scale=0.6]{Images/Grammar/Terms_Physical.JPG}
 \end{frame}
 
-\begin{frame}{Grammar: Schema Types}
+\begin{frame}{Types: Schema Types}
 \centering
 %	\begin{flushleft}
 %	$ schema := \hfill \quad Schema \:Types\hfill$\\
@@ -83,7 +83,7 @@
 \includegraphics[scale=0.6]{Images/Grammar/Schema.JPG}
 \end{frame}
 
-\begin{frame}{Grammar: Types}
+\begin{frame}{Types}
 \centering
 %	\begin{flushleft}
 %	$ \texttt{ty} := \qquad\qquad\qquad\qquad\quad\quad\:\: \texttt{Types}\hfill$\\
@@ -98,7 +98,7 @@
 \includegraphics[scale=0.6]{Images/Grammar/Types.JPG}
 \end{frame}
 
-\subsection{Typing Rules for Logical Plan}
+\subsection{Logical Plan: Typing Relation}
 \begin{frame}{Typing Rules: Queries}
 \centering
 %	\begin{mathpar}
@@ -115,7 +115,7 @@
 \includegraphics[scale=0.4]{Images/TypingRules/FilterForeach.JPG}
 \end{frame}
 
-\begin{frame}{Typing Rules: Queries(continued...)}
+\begin{frame}{Logical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_Group}]
@@ -128,7 +128,7 @@
 \includegraphics[scale=0.4]{Images/TypingRules/Group.JPG}
 \end{frame}
 
-\begin{frame}{Typing Rules: Queries(continued...)}
+\begin{frame}{Logical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_Join}]
@@ -142,7 +142,7 @@
 \includegraphics[scale=0.4]{Images/TypingRules/Join.JPG}
 \end{frame}
 
-\begin{frame}{Typing Rules: Statements}
+\begin{frame}{Logical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_Load}]
@@ -160,7 +160,7 @@
 \includegraphics[scale=0.4]{Images/TypingRules/Load_Assign_Store.JPG}
 \end{frame}
 
-\begin{frame}{Typing Rules: Statements (continued...)}
+\begin{frame}{Logical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\textbf{T\_SeqLoad}]
@@ -178,7 +178,7 @@
 \includegraphics[scale=0.4]{Images/TypingRules/SEQ1.JPG}
 \end{frame}
 
-\begin{frame}{Typing Rules: Statements (continued...)}
+\begin{frame}{Logical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right= \textbf{T\_SeqStore}]
@@ -191,7 +191,7 @@
 \end{frame}
 
 \subsection{Typing Rules for Physical Plan}
-\begin{frame}{Typing Rules: Queries}
+\begin{frame}{Physical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\texttt{T\_LReArrange}]
@@ -206,7 +206,7 @@
 \includegraphics[scale=0.4]{Images/TypingRules/ReArrange.JPG}
 \end{frame}
 
-\begin{frame}{Queries(continued...)}
+\begin{frame}{Physical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
 %		\inferrule* [Right=\texttt{T\_Package}]
@@ -221,12 +221,12 @@
 
 \subsection{Semantics via Specification Relations}
 
-\begin{frame}{Semantics: Representing Relations with multiset}
+\begin{frame}{Semantics: Representing Relations with \texttt{multiset}}
 \centering
   \includegraphics[scale=0.5]{CoqIDE/Semantics/Multisets.png}
 \end{frame}
 
-\begin{frame}{Semantics: Representing Relations with multiset}
+\begin{frame}{Semantics: Representing Relations with \texttt{multiset}}
 \centering
   \includegraphics[scale=0.55]{CoqIDE/Semantics/support.png}
 	\\[3ex]
