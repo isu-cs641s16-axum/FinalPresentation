@@ -15,7 +15,7 @@
 \end{itemize}
 \end{frame}
 
-\subsection{Formalism}
+\subsection{Conventions and Notations}
 \begin{frame}{Conventions and Notations}
 \centering
 	\begin{flushleft}
@@ -34,6 +34,38 @@
 	\end{flushleft}
 \end{frame}
 
+\subsection{Types}
+\begin{frame}{Types}
+\centering
+%	\begin{flushleft}
+%	$ \texttt{ty} := \qquad\qquad\qquad\qquad\quad\quad\:\: \texttt{Types}\hfill$\\
+%	$ \:\:\: \mid \texttt{TUnit}\hfill \texttt{Unit Type}\hfill$\\
+%   	$ \:\:\: \mid \texttt{TFn} \hfill\qquad\quad\:\: \texttt{Function Type}\hfill$\\
+%    $ \:\:\: \mid \texttt{TPred} \hfill\qquad\quad \texttt{Predicate Type}\hfill$\\
+%    $ \:\:\: \mid \texttt{TNil} \hfill \qquad\qquad\qquad\qquad\:\:\: \texttt{Schema Tuple Terminator}\hfill$\\
+%    $ \:\:\: \mid \texttt{TCons} \hfill \qquad\qquad\qquad\quad\:\: \texttt{Schema Tuple Extension}\hfill$\\
+%   	$ \:\:\: \mid \texttt{TInt} \hfill \qquad\qquad\qquad\qquad\quad \texttt{Atomic Schema Attribute}\hfill$\\
+%    $ \:\:\: \mid \texttt{TBag} \hfill \quad\qquad\qquad\qquad\qquad\: \texttt{Compound Schema Attribute}\hfill$\\
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Types.JPG}
+\end{frame}
+
+\begin{frame}{Types: Schema Types (An Important Auxilliary Type)}
+\centering
+%	\begin{flushleft}
+%	$ schema := \hfill \quad Schema \:Types\hfill$\\
+%	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
+%   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
+%
+%	$ \texttt{schema} := \hfill \quad\texttt{Schema Types}\hfill$\\
+%	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
+%   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
+%
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Schema.JPG}
+\end{frame}
+
+\subsection{Logical Plan}
 \begin{frame}{Logical Plan: Terms}
 \centering
 %	\begin{flushleft}
@@ -50,55 +82,6 @@
 \includegraphics[scale=0.6]{Images/Grammar/Terms.JPG}
 \end{frame}
 
-
-\begin{frame}{Physical Plan: Terms}
-\centering
-%	\begin{flushleft}
-%	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
-%	$ \quad \mid \texttt{t\_filter}\hfill \texttt{Query Filter}\hfill$\\
-%   	$ \quad \mid \texttt{t\_foreach} \hfill \texttt{Query ForEach}\hfill$\\
-%    $ \quad \mid \texttt{t\_lrearrange} \hfill \texttt{Query Local ReArrange}\hfill$\\
-%    $ \quad \mid \texttt{t\_grearrange} \hfill \texttt{Query Global ReArrange}\hfill$\\
-%    $ \quad \mid \texttt{t\_package} \hfill \texttt{Query Package}\hfill$\\
-%    $ \quad \mid \texttt{t\_load} \hfill \quad\quad\:\: \texttt{Load Statement}\hfill$\\
-%   	$ \quad \mid \texttt{t\_assign} \hfill \qquad\qquad\quad \texttt{Assignment Statement}\hfill$\\
-%    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
-%    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
-%	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Terms_Physical.JPG}
-\end{frame}
-
-\begin{frame}{Types: Schema Types}
-\centering
-%	\begin{flushleft}
-%	$ schema := \hfill \quad Schema \:Types\hfill$\\
-%	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
-%   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
-%
-%	$ \texttt{schema} := \hfill \quad\texttt{Schema Types}\hfill$\\
-%	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
-%   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
-%
-%	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Schema.JPG}
-\end{frame}
-
-\begin{frame}{Types}
-\centering
-%	\begin{flushleft}
-%	$ \texttt{ty} := \qquad\qquad\qquad\qquad\quad\quad\:\: \texttt{Types}\hfill$\\
-%	$ \:\:\: \mid \texttt{TUnit}\hfill \texttt{Unit Type}\hfill$\\
-%   	$ \:\:\: \mid \texttt{TFn} \hfill\qquad\quad\:\: \texttt{Function Type}\hfill$\\
-%    $ \:\:\: \mid \texttt{TPred} \hfill\qquad\quad \texttt{Predicate Type}\hfill$\\
-%    $ \:\:\: \mid \texttt{TNil} \hfill \qquad\qquad\qquad\qquad\:\:\: \texttt{Schema Tuple Terminator}\hfill$\\
-%    $ \:\:\: \mid \texttt{TCons} \hfill \qquad\qquad\qquad\quad\:\: \texttt{Schema Tuple Extension}\hfill$\\
-%   	$ \:\:\: \mid \texttt{TInt} \hfill \qquad\qquad\qquad\qquad\quad \texttt{Atomic Schema Attribute}\hfill$\\
-%    $ \:\:\: \mid \texttt{TBag} \hfill \quad\qquad\qquad\qquad\qquad\: \texttt{Compound Schema Attribute}\hfill$\\
-%	\end{flushleft}
-\includegraphics[scale=0.6]{Images/Grammar/Types.JPG}
-\end{frame}
-
-\subsection{Logical Plan: Typing Relation}
 \begin{frame}{Typing Rules: Queries}
 \centering
 %	\begin{mathpar}
@@ -190,7 +173,26 @@
 \includegraphics[scale=0.4]{Images/TypingRules/SEQ2.JPG}
 \end{frame}
 
-\subsection{Typing Rules for Physical Plan}
+
+\subsection{Physical Plan}
+
+\begin{frame}{Physical Plan: Terms}
+\centering
+%	\begin{flushleft}
+%	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
+%	$ \quad \mid \texttt{t\_filter}\hfill \texttt{Query Filter}\hfill$\\
+%   	$ \quad \mid \texttt{t\_foreach} \hfill \texttt{Query ForEach}\hfill$\\
+%    $ \quad \mid \texttt{t\_lrearrange} \hfill \texttt{Query Local ReArrange}\hfill$\\
+%    $ \quad \mid \texttt{t\_grearrange} \hfill \texttt{Query Global ReArrange}\hfill$\\
+%    $ \quad \mid \texttt{t\_package} \hfill \texttt{Query Package}\hfill$\\
+%    $ \quad \mid \texttt{t\_load} \hfill \quad\quad\:\: \texttt{Load Statement}\hfill$\\
+%   	$ \quad \mid \texttt{t\_assign} \hfill \qquad\qquad\quad \texttt{Assignment Statement}\hfill$\\
+%    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
+%    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Terms_Physical.JPG}
+\end{frame}
+
 \begin{frame}{Physical Plan: Typing Rules}
 \centering
 %	\begin{mathpar}
