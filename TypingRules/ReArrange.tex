@@ -6,13 +6,13 @@
 \begin{frame}{}
 	\begin{mathpar}
 		\inferrule* [Right=\quad T\_LReArrange]
-          		{\Gamma \vdash x = S \\ schema \:S \\\\ 
-          		\vdash \:S \:[c] \in TInt} 
-          		{\Gamma \vdash LReArrange \:x\:c \in S }\\
+          		{\Gamma \vdash x = TSchema \:S \\\\ 
+          		\vdash \:S \:[c] \:CTyNat} 
+          		{\Gamma \vdash LReArrange \:x\:c \in TSchema \:S }\\
 		\inferrule* [Right=\quad T\_GReArrange]
-          		{\Gamma \vdash x = S \\ schema \:S \\\\ 
-          		\vdash \:S \:[c] \in TInt} 
-          		{\Gamma \vdash GReArrange \:x\:c \in S }
+          		{\Gamma \vdash x = TSchema \:S \\\\ 
+          		\vdash \:S \:[c] \:CTyNat} 
+          		{\Gamma \vdash GReArrange \:x\:c \in TSchema \:S }
 	\end{mathpar}
 \end{frame}
 \end{document}

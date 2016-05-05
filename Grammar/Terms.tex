@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\begin{frame}{}
+\centering
+	\begin{flushright}
+	tm := \hfill \quad Terms \hfill \\
+	\quad |FILTER \:x \:y \hfill Query Filter\hfill \\
+   	\quad |FOREACH \:x \:y \hfill Query Filter \hfill \\
+	\quad |GROUP \:x \:c \hfill Query Group\hfill \\
+	\quad |JOIN \:x  \:$c_x$ \:y \:$c_y$ \hfill Query Join\hfill \\
+	\quad |LOAD \:x \:T \hfill Statement Load\hfill \\
+   	\quad |x ::= \:q \hfill Statement Assignment \hfill \\
+   	\quad |$s_1 \:;; \:s_2$ \hfill Sequence of Statements \hfill \\
+   	\quad |STORE \:x \hfill Statement Store \hfill \\
+	\end{flushright}
+\end{frame}
+\end{document}

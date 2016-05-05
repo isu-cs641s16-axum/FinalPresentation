@@ -6,11 +6,9 @@
 \begin{frame}{}
 	\begin{mathpar}
 		\inferrule* [Right= \quad T\_Group]
-          		{\Gamma \vdash x = S \\\\ 
-          		schema \:S \\ schema \:S' \\\\ 
-          		\vdash \:S \:[c] \in \:TInt\\\\ 
-          		S' = TInt ::: (TBag \:S) ::: TInt} 
-          		{\Gamma \vdash GROUP \:x \:c \in S' }
+          		{\Gamma \vdash x = TSchema \:S \\\\
+          		\vdash \:S \:[c] \:CTyNat} 
+          		{\Gamma \vdash GROUP \:x \:c \in TSchema (CTyNat (CTyBag \:S)) }
 	\end{mathpar}
 \end{frame}
 \end{document}

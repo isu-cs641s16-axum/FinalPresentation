@@ -25,80 +25,90 @@
 		x, y : identifiers\newline
 		\textGamma \quad : Context\newline
  		s \quad : a statement\newline
- 		q \quad : a term of query form\newline 
-	\end{flushleft}
-\end{frame}
-
-\begin{frame}{Grammar: Schema Types}
-\centering
-	\begin{flushleft}
-	$ \texttt{schema} := \hfill \quad\texttt{Schema Types}\hfill$\\
-	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
-   	$ \quad \mid \texttt{STConsInt} \hfill \texttt{Function Type}\hfill$\\
-    $ \quad \mid \texttt{STConsBag} \hfill \:\:\texttt{Predicate Type}\hfill$\\
-	\end{flushleft}
-\end{frame}
-
-\begin{frame}{Grammar: UDF Types}
-\centering
-	\begin{flushleft}
-	$ \texttt{udf} := \hfill \quad\quad\:\:\:\texttt{User Defined Types}\hfill$\\
-	$ \quad \mid \texttt{UDFTFn}\hfill \:\:\texttt{UDF Function Type}\hfill$\\
-   	$ \quad \mid \texttt{UDFTPred} \hfill \texttt{UDF Predicate Type}\hfill$\\
-	\end{flushleft}
-\end{frame}
-
-\begin{frame}{Grammar: Loadable Types}
-\centering
-	\begin{flushleft}
-	$ \texttt{loadable\_ty} := \quad\quad\quad\quad\:\: \texttt{Loadable Types}\hfill$\\
-	$ \quad \mid \texttt{LTSchema}\hfill \texttt{Loadable Schema}\hfill$\\
-   	$ \quad \mid \texttt{LTUDF} \hfill \texttt{Loadable UDF}\hfill$\\
+ 		q \quad : a term of query form\newline
+ 		$\vdash$ S c T : column c in Schema S has type T\newline
+ 		+++ : Schema Concatenation\newline
+ 		*** : Schema constructed from a pair of types\newline
+ 		::= : Assignment of statement to ID \newline
+ 		;; : Sequence of Statements
 	\end{flushleft}
 \end{frame}
 
 \begin{frame}{Grammar: Terms For Logical Plan}
 \centering
-	\begin{flushleft}
-	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
-	$ \quad \mid \texttt{t\_filter}\hfill \texttt{Query Filter}\hfill$\\
-   	$ \quad \mid \texttt{t\_foreach} \hfill \texttt{Query ForEach}\hfill$\\
-    $ \quad \mid \texttt{t\_group} \hfill \texttt{Query Group}\hfill$\\
-    $ \quad \mid \texttt{t\_join} \hfill \texttt{Query Join}\hfill$\\
-    $ \quad \mid \texttt{t\_load} \hfill \quad\quad\:\: \texttt{Load Statement}\hfill$\\
-   	$ \quad \mid \texttt{t\_assign} \hfill \qquad\qquad\quad \texttt{Assignment Statement}\hfill$\\
-    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
-    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
-	\end{flushleft}
+%	\begin{flushleft}
+%	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
+%	$ \quad \mid \texttt{t\_filter}\hfill \texttt{Query Filter}\hfill$\\
+%   	$ \quad \mid \texttt{t\_foreach} \hfill \texttt{Query ForEach}\hfill$\\
+%    $ \quad \mid \texttt{t\_group} \hfill \texttt{Query Group}\hfill$\\
+%    $ \quad \mid \texttt{t\_join} \hfill \texttt{Query Join}\hfill$\\
+%    $ \quad \mid \texttt{t\_load} \hfill \quad\quad\:\: \texttt{Load Statement}\hfill$\\
+%   	$ \quad \mid \texttt{t\_assign} \hfill \qquad\qquad\quad \texttt{Assignment Statement}\hfill$\\
+%    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
+%    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Terms.JPG} 
 \end{frame}
+
+
 \begin{frame}{Grammar: Terms For Physical Plan}
 \centering
-	\begin{flushleft}
-	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
-	$ \quad \mid \texttt{t\_filter}\hfill \texttt{Query Filter}\hfill$\\
-   	$ \quad \mid \texttt{t\_foreach} \hfill \texttt{Query ForEach}\hfill$\\
-    $ \quad \mid \texttt{t\_lrearrange} \hfill \texttt{Query Local ReArrange}\hfill$\\
-    $ \quad \mid \texttt{t\_grearrange} \hfill \texttt{Query Global ReArrange}\hfill$\\
-    $ \quad \mid \texttt{t\_package} \hfill \texttt{Query Package}\hfill$\\
-    $ \quad \mid \texttt{t\_load} \hfill \quad\quad\:\: \texttt{Load Statement}\hfill$\\
-   	$ \quad \mid \texttt{t\_assign} \hfill \qquad\qquad\quad \texttt{Assignment Statement}\hfill$\\
-    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
-    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
-	\end{flushleft}
+%	\begin{flushleft}
+%	$ \texttt{tm} := \qquad\qquad\qquad\qquad\qquad\:\: \texttt{Terms}\hfill$\\
+%	$ \quad \mid \texttt{t\_filter}\hfill \texttt{Query Filter}\hfill$\\
+%   	$ \quad \mid \texttt{t\_foreach} \hfill \texttt{Query ForEach}\hfill$\\
+%    $ \quad \mid \texttt{t\_lrearrange} \hfill \texttt{Query Local ReArrange}\hfill$\\
+%    $ \quad \mid \texttt{t\_grearrange} \hfill \texttt{Query Global ReArrange}\hfill$\\
+%    $ \quad \mid \texttt{t\_package} \hfill \texttt{Query Package}\hfill$\\
+%    $ \quad \mid \texttt{t\_load} \hfill \quad\quad\:\: \texttt{Load Statement}\hfill$\\
+%   	$ \quad \mid \texttt{t\_assign} \hfill \qquad\qquad\quad \texttt{Assignment Statement}\hfill$\\
+%    $ \quad \mid \texttt{t\_seq} \hfill \qquad\qquad\qquad\quad\quad \texttt{Sequence of Statements}\hfill$\\
+%    $ \quad \mid \texttt{t\_store} \hfill \quad\quad\:\: \texttt{Store Statement}\hfill$\\
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Terms_Physical.JPG} 
+\end{frame}
+
+\begin{frame}{Grammar: Schema Types}
+\centering
+%	\begin{flushleft}
+%	$ schema := \hfill \quad Schema \:Types\hfill$\\
+%	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
+%   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
+%	
+%	$ \texttt{schema} := \hfill \quad\texttt{Schema Types}\hfill$\\
+%	$ \quad \mid \texttt{STNil}\hfill \texttt{{Unit Type}}\hfill$\\
+%   	$ \quad \mid \texttt{STyPair} \hfill \texttt{Tuple of Column and Schema}\hfill$\\
+%
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Schema.JPG} 
+\end{frame}
+
+
+\begin{frame}{Grammar: Relations}
+\centering
+%	\begin{mathpar}
+%		\inferrule* [Right=\texttt{T\_Package}]
+%          		{\Gamma \vdash \texttt{x = S} \\ \texttt{schema \:S} \\\\ 
+%          		schema\_column\_has\_type \:S \:c \\\\
+%				S' = TInt ::: (TBag S) \\ \texttt{schema \:S'}} 
+%          		{\Gamma \vdash \texttt{Package \:x c} \in \texttt{S'} }
+%	\end{mathpar}
+\includegraphics[scale=0.6]{Images/Grammar/Relation.JPG} 
 \end{frame}
 
 \begin{frame}{Grammar: Types}
 \centering
-	\begin{flushleft}
-	$ \texttt{ty} := \qquad\qquad\qquad\qquad\quad\quad\:\: \texttt{Types}\hfill$\\
-	$ \:\:\: \mid \texttt{TUnit}\hfill \texttt{Unit Type}\hfill$\\
-   	$ \:\:\: \mid \texttt{TFn} \hfill\qquad\quad\:\: \texttt{Function Type}\hfill$\\
-    $ \:\:\: \mid \texttt{TPred} \hfill\qquad\quad \texttt{Predicate Type}\hfill$\\
-    $ \:\:\: \mid \texttt{TNil} \hfill \qquad\qquad\qquad\qquad\:\:\: \texttt{Schema Tuple Terminator}\hfill$\\
-    $ \:\:\: \mid \texttt{TCons} \hfill \qquad\qquad\qquad\quad\:\: \texttt{Schema Tuple Extension}\hfill$\\
-   	$ \:\:\: \mid \texttt{TInt} \hfill \qquad\qquad\qquad\qquad\quad \texttt{Atomic Schema Attribute}\hfill$\\
-    $ \:\:\: \mid \texttt{TBag} \hfill \quad\qquad\qquad\qquad\qquad\: \texttt{Compound Schema Attribute}\hfill$\\
-	\end{flushleft}
+%	\begin{flushleft}
+%	$ \texttt{ty} := \qquad\qquad\qquad\qquad\quad\quad\:\: \texttt{Types}\hfill$\\
+%	$ \:\:\: \mid \texttt{TUnit}\hfill \texttt{Unit Type}\hfill$\\
+%   	$ \:\:\: \mid \texttt{TFn} \hfill\qquad\quad\:\: \texttt{Function Type}\hfill$\\
+%    $ \:\:\: \mid \texttt{TPred} \hfill\qquad\quad \texttt{Predicate Type}\hfill$\\
+%    $ \:\:\: \mid \texttt{TNil} \hfill \qquad\qquad\qquad\qquad\:\:\: \texttt{Schema Tuple Terminator}\hfill$\\
+%    $ \:\:\: \mid \texttt{TCons} \hfill \qquad\qquad\qquad\quad\:\: \texttt{Schema Tuple Extension}\hfill$\\
+%   	$ \:\:\: \mid \texttt{TInt} \hfill \qquad\qquad\qquad\qquad\quad \texttt{Atomic Schema Attribute}\hfill$\\
+%    $ \:\:\: \mid \texttt{TBag} \hfill \quad\qquad\qquad\qquad\qquad\: \texttt{Compound Schema Attribute}\hfill$\\
+%	\end{flushleft}
+\includegraphics[scale=0.6]{Images/Grammar/Types.JPG} 
 \end{frame}
 
 \subsection{Typing Rules for Logical Plan}

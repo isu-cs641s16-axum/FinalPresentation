@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,latexsym, mathpartir}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\begin{frame}{}
+\centering
+	\begin{flushright}
+	ty := \hfill \quad Types \hfill \\
+	\quad |TUnit \hfill Unit Type\hfill \\
+   	\quad |TFn \:$S_1 \:S_2$ \hfill Function Type \hfill \\
+	\quad |TPred \:S \hfill Predicate Type\hfill \\
+	\quad |TSchema \:S \hfill Schema Type \hfill \\[3ex]
+	udf := \hfill \quad UDF Types\hfill \\
+	\quad |UDFTFn TFn $\:S_1 \:S_2$ \hfill Function Type\hfill \\
+   	\quad |UDFTPred TPred \:S \hfill Predicate Type \:of \:Column and Schema \hfill \\[3ex] 
+	loadable := \hfill \quad Loadable Types\hfill \\
+	\quad |LTSchema \:S\hfill Loadable Schema\hfill \\
+   	\quad |LTUDF UDF \:S\hfill Loadable UDF\hfill \\
+	
+	\end{flushright}
+\end{frame}
+\end{document}

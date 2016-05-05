@@ -7,7 +7,7 @@
 	\begin{mathpar}
 		\inferrule* [Right= \quad T\_SeqStore]
           	{s_1 = STORE \:x \\\\
-          	\Gamma \vdash x = S \\ schema \:S  \\\\ 
+          	\Gamma \vdash x = TSchema \:S \\\\ 
 			\Gamma \vdash s_1 \in TUnit \\ \Gamma \vdash s_2 \in TUnit } 
 			{\Gamma \vdash \:s_1 \: ;; \:s_2 \in TUnit }
 	\end{mathpar}

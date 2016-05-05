@@ -6,11 +6,10 @@
 \begin{frame}{}
 	\begin{mathpar}
 		\inferrule* [Right= \quad T\_Join]
-          		{\Gamma \vdash x = S_1 \\ \Gamma \vdash y =  S_2 \\\\
-          		schema\:S_1 \\ schema \:S_2 \\\\ 
-		 		\vdash \:S_1 \:[c_x] \in \:TInt \\ \vdash \:S_2 \:[c_y] \in \:TInt \\\\
+          		{\Gamma \vdash x = TSchema \:S_1 \\ \Gamma \vdash y =  TSchema \:S_2 \\\\
+		 		\vdash \:S_1 \:[c_x] \:CTyNat \\ \vdash \:S_2 \:[c_y] \:CTyNat \\\\
 		 		\:S_3 = \:S_1 +++ \:S_2} 
-		 		{\Gamma \vdash JOIN \:x \:c_x \:y \:c_y \in S_3 }
+		 		{\Gamma \vdash JOIN \:x \:c_x \:y \:c_y \in TSchema \:S_3 }
 	\end{mathpar}
 \end{frame}
 \end{document}

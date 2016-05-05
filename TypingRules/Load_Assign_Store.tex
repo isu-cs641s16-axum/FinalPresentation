@@ -6,14 +6,14 @@
 \begin{frame}{}
 \centering
 	\begin{mathpar}
-		\inferrule* [Right=\quad\quad\quad\:\:\: T\_Load]
+		\inferrule* [Right=\quad\quad\quad \:\: T\_Load]
           		{\Gamma \vdash x = None \\ loadable\: T} 
           		{\Gamma \vdash LOAD \:x\:T \in TUnit }\\
 		\inferrule* [Right=\quad\: T\_Assign]
-          		{\Gamma \vdash x = None \\ \Gamma \vdash q = S \\schema \:S} 
+          		{\Gamma \vdash x = None \\ \Gamma \vdash q \in TSchema \:S} 
           		{\Gamma \vdash \:x ::= \:q \in TUnit }\\
-		\inferrule* [Right=\quad\quad\quad\quad\quad\:\: T\_Store]
-				{\Gamma \vdash x = S \\ schema \:S} 
+		\inferrule* [Right=\quad\quad\quad\quad\quad T\_Store]
+				{\Gamma \vdash x = TSchema \:S} 
 				{\Gamma \vdash STORE \:x \in TUnit }
 	\end{mathpar}
 \end{frame}

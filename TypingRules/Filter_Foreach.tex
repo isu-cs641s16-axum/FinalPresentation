@@ -6,14 +6,13 @@
 \begin{frame}{}
 	\begin{mathpar}
 		\inferrule* [Right=\quad T\_Filter]
-          		{\Gamma \vdash x = S \\ schema \:S \\ 
-          		\Gamma \vdash y = Pred \:S} 
-          		{\Gamma \vdash FILTER \:x, y \in S }
+          		{\Gamma \vdash x = TSchema \:S \\ 
+          		\Gamma \vdash y = TPred \:S} 
+          		{\Gamma \vdash FILTER \:x, y \in TSchema \:S }
 		\hva \and
-		\inferrule* [Right=\quad\quad\quad\: T\_ForEach]
-          		{schema \:S_1 \\ schema \:S_2 \\\\ 
-				\Gamma \vdash x = S_1 \\ \Gamma \vdash y = Fn\: S_1\:S_2} 
-				{\Gamma \vdash FOREACH \:x\:y \in S }
+		\inferrule* [Right= \:\:\: T\_ForEach]
+          		{\Gamma \vdash x = TSchema \:S \\ \Gamma \vdash y = TFn\: S\:S'} 
+				{\Gamma \vdash FOREACH \:x\:y \in TSchema \:S' }
 	\end{mathpar}
 \end{frame}
 \end{document}
